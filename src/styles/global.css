@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Space+Grotesk:wght@500;700&display=swap');
+
+:root {
+  --bg: #f6f3ee;
+  --surface: #fffaf1;
+  --text: #1d232b;
+  --muted: #4b5968;
+  --accent: #b13a2b;
+  --accent-soft: #f8d7cf;
+  --border: #e4d8c5;
+  --shadow: 0 10px 30px rgba(32, 33, 35, 0.08);
+  --max: 74ch;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background:
+    radial-gradient(circle at top right, #f0dfca 0%, transparent 36%),
+    radial-gradient(circle at left 80%, #e6efdf 0%, transparent 30%),
+    var(--bg);
+  color: var(--text);
+  font-family: 'Merriweather', Georgia, serif;
+  line-height: 1.75;
+}
+
+a {
+  color: inherit;
+  text-decoration-thickness: 2px;
+  text-decoration-color: color-mix(in srgb, var(--accent) 70%, transparent);
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  text-decoration-color: var(--accent);
+}
+
+.wrapper {
+  width: min(1100px, 92vw);
+  margin: 0 auto;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(8px);
+  background: color-mix(in srgb, var(--bg) 85%, white);
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 80%, white);
+  z-index: 50;
+}
+
+.site-header .inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.95rem 0;
+}
+
+.brand {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.nav {
+  display: flex;
+  gap: 1rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+main {
+  padding: 3.2rem 0 5rem;
+}
+
+.hero {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  padding: 2.6rem;
+  animation: rise 520ms ease-out both;
+}
+
+.hero h1 {
+  margin: 0 0 0.75rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2rem, 6vw, 3.3rem);
+  line-height: 1.05;
+}
+
+.hero p {
+  margin: 0;
+  color: var(--muted);
+  max-width: 56ch;
+}
+
+.posts-grid {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 1rem;
+}
+
+.post-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.2rem;
+  box-shadow: var(--shadow);
+  display: grid;
+  gap: 0.7rem;
+  animation: rise 450ms ease-out both;
+}
+
+.post-card h2,
+.post-card h3 {
+  margin: 0;
+  font-family: 'Space Grotesk', sans-serif;
+  line-height: 1.2;
+}
+
+.post-card p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.meta {
+  display: flex;
+  gap: 0.65rem;
+  align-items: center;
+  flex-wrap: wrap;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.tag {
+  padding: 0.16rem 0.5rem;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: color-mix(in srgb, var(--accent) 85%, black);
+  font-weight: 700;
+}
+
+.article {
+  max-width: var(--max);
+  margin: 0 auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: clamp(1.2rem, 4vw, 2.4rem);
+  box-shadow: var(--shadow);
+}
+
+.article h1,
+.article h2,
+.article h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  line-height: 1.2;
+}
+
+.article h1 {
+  margin-top: 0;
+  font-size: clamp(2rem, 5vw, 3rem);
+}
+
+.article pre {
+  padding: 1rem;
+  border-radius: 12px;
+  overflow-x: auto;
+  border: 1px solid var(--border);
+}
+
+.article blockquote {
+  margin: 1.5rem 0;
+  padding: 0.2rem 1rem;
+  border-left: 5px solid var(--accent);
+  background: color-mix(in srgb, var(--surface) 60%, white);
+}
+
+.site-footer {
+  padding: 2rem 0 3rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 700px) {
+  .site-header .inner {
+    gap: 0.8rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero {
+    padding: 1.4rem;
+  }
+
+  .nav {
+    font-size: 0.9rem;
+  }
+}
+
+.article img,
+.article svg,
+.article video,
+.article iframe {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
