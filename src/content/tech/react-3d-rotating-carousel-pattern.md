@@ -20,6 +20,15 @@ It is not limited to a Skills section. You can use the same pattern for:
 4. Feature groups
 5. Team roles
 
+Here is a quick demo from my portfolio:
+
+<video controls autoplay muted loop playsinline preload="metadata">
+  <source src="/media/posts/react-3d-carousel-demo.mov" type="video/quicktime" />
+  Your browser does not support this video format.
+</video>
+
+If `.mov` does not play in your browser, export the same recording as `.mp4` and update the source path.
+
 ## Why this pattern works
 
 The carousel uses one simple idea:
