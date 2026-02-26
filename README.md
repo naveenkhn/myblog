@@ -65,7 +65,3 @@ Deployment is handled by `.github/workflows/deploy.yml` on pushes to `main`.
 ```txt
 blog.naveenkhn.com
 ```
-
-## Notes
-
-- `setup.md` is for local reference and is intentionally ignored by git.
