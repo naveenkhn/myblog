@@ -95,8 +95,42 @@ const { title, description = 'Technical writing by Naveen Kumar' } = Astro.props
           applyThemeAwareImages(theme);
         };
 
+        const enhanceCodeBlocks = () => {
+          const codeBlocks = document.querySelectorAll('.article pre > code');
+          codeBlocks.forEach((code) => {
+            if (!(code instanceof HTMLElement)) return;
+            const pre = code.parentElement;
+            if (!(pre instanceof HTMLElement)) return;
+            if (pre.querySelector('.code-copy-btn')) return;
+
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.className = 'code-copy-btn';
+            button.textContent = 'Copy';
+            button.setAttribute('aria-label', 'Copy code to clipboard');
+
+            button.addEventListener('click', async () => {
+              try {
+                await navigator.clipboard.writeText(code.innerText);
+                button.textContent = 'Copied';
+                setTimeout(() => {
+                  button.textContent = 'Copy';
+                }, 1500);
+              } catch {
+                button.textContent = 'Failed';
+                setTimeout(() => {
+                  button.textContent = 'Copy';
+                }, 1500);
+              }
+            });
+
+            pre.appendChild(button);
+          });
+        };
+
         let currentTheme = getResolvedTheme();
         applyTheme(currentTheme);
+        enhanceCodeBlocks();
 
         toggle.addEventListener('click', () => {
           currentTheme = currentTheme === 'dark' ? 'light' : 'dark';

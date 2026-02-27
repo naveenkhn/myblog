@@ -230,9 +230,40 @@ main {
 
 .article pre {
   padding: 1rem;
-  border-radius: 12px;
+  padding-top: 2.2rem;
+  border-radius: 10px;
   overflow-x: auto;
-  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--surface) 92%, #eef3fb);
+  border: 1px solid color-mix(in srgb, var(--border) 86%, #cad4e7);
+  box-shadow: none;
+  position: relative;
+}
+
+.article pre code {
+  font-family: 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
+  font-size: 0.84rem;
+  line-height: 1.5;
+}
+
+.code-copy-btn {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.65rem;
+  border: 1px solid color-mix(in srgb, var(--border) 76%, #b8c4d8);
+  background: color-mix(in srgb, var(--surface) 92%, #f2f6fd);
+  color: var(--muted);
+  border-radius: 999px;
+  padding: 0.15rem 0.6rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.code-copy-btn:hover {
+  color: var(--accent);
+  border-color: var(--accent);
 }
 
 .article blockquote {
