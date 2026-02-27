@@ -12,7 +12,7 @@ featured: false
 
 This is a reusable React + CSS pattern for a 3D rotating carousel of cards.
 
-It is not limited to a Skills section. You can use the same pattern for:
+You can reuse this carousel for projects, testimonials, product highlights, and other grouped content:
 
 1. Projects
 2. Testimonials

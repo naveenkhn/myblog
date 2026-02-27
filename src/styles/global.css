@@ -12,6 +12,17 @@
   --max: 74ch;
 }
 
+:root[data-theme='dark'] {
+  --bg: #121722;
+  --surface: #1a2130;
+  --text: #e7edf8;
+  --muted: #b8c2d4;
+  --accent: #ff8a72;
+  --accent-soft: #3a2a31;
+  --border: #2a3448;
+  --shadow: 0 14px 34px rgba(0, 0, 0, 0.35);
+}
+
 * {
   box-sizing: border-box;
 }
