@@ -239,6 +239,10 @@ main {
   position: relative;
 }
 
+.code-block-shell {
+  position: relative;
+}
+
 .article pre code {
   font-family: 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
   font-size: 0.84rem;

@@ -101,7 +101,15 @@ const { title, description = 'Technical writing by Naveen Kumar' } = Astro.props
             if (!(code instanceof HTMLElement)) return;
             const pre = code.parentElement;
             if (!(pre instanceof HTMLElement)) return;
-            if (pre.querySelector('.code-copy-btn')) return;
+
+            let shell = pre.parentElement;
+            if (!(shell instanceof HTMLElement) || !shell.classList.contains('code-block-shell')) {
+              shell = document.createElement('div');
+              shell.className = 'code-block-shell';
+              pre.parentNode?.insertBefore(shell, pre);
+              shell.appendChild(pre);
+            }
+            if (shell.querySelector('.code-copy-btn')) return;
 
             const languageClassSource = `${code.className} ${pre.className}`;
             const match = languageClassSource.match(/language-([a-z0-9#+-]+)/i);
@@ -109,7 +117,7 @@ const { title, description = 'Technical writing by Naveen Kumar' } = Astro.props
               const languageBadge = document.createElement('span');
               languageBadge.className = 'code-lang-badge';
               languageBadge.textContent = match[1].toLowerCase();
-              pre.appendChild(languageBadge);
+              shell.appendChild(languageBadge);
             }
 
             const button = document.createElement('button');
@@ -133,7 +141,7 @@ const { title, description = 'Technical writing by Naveen Kumar' } = Astro.props
               }
             });
 
-            pre.appendChild(button);
+            shell.appendChild(button);
           });
         };
 
