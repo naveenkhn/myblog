@@ -38,6 +38,9 @@ const { title, description = 'Technical writing by Naveen Kumar' } = Astro.props
         <nav class="nav">
           <a href="/">Home</a>
           <a href="/posts/">Posts</a>
+          <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle theme" aria-pressed="false">
+            Theme
+          </button>
         </nav>
       </div>
     </header>
@@ -51,5 +54,33 @@ const { title, description = 'Technical writing by Naveen Kumar' } = Astro.props
         © {new Date().getFullYear()} Naveen Kumar. Built with Astro. <a href="/rss.xml">RSS</a>
       </div>
     </footer>
+    <script is:inline>
+      (() => {
+        const storageKey = 'theme-preference';
+        const toggle = document.getElementById('theme-toggle');
+        if (!(toggle instanceof HTMLButtonElement)) return;
+
+        const getResolvedTheme = () => {
+          const saved = localStorage.getItem(storageKey);
+          if (saved === 'light' || saved === 'dark') return saved;
+          return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        };
+
+        const applyTheme = (theme) => {
+          document.documentElement.setAttribute('data-theme', theme);
+          toggle.setAttribute('aria-pressed', String(theme === 'dark'));
+          toggle.textContent = theme === 'dark' ? 'Dark' : 'Light';
+        };
+
+        let currentTheme = getResolvedTheme();
+        applyTheme(currentTheme);
+
+        toggle.addEventListener('click', () => {
+          currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+          localStorage.setItem(storageKey, currentTheme);
+          applyTheme(currentTheme);
+        });
+      })();
+    </script>
   </body>
 </html>
