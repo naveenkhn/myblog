@@ -103,6 +103,15 @@ const { title, description = 'Technical writing by Naveen Kumar' } = Astro.props
             if (!(pre instanceof HTMLElement)) return;
             if (pre.querySelector('.code-copy-btn')) return;
 
+            const languageClassSource = `${code.className} ${pre.className}`;
+            const match = languageClassSource.match(/language-([a-z0-9#+-]+)/i);
+            if (match?.[1]) {
+              const languageBadge = document.createElement('span');
+              languageBadge.className = 'code-lang-badge';
+              languageBadge.textContent = match[1].toLowerCase();
+              pre.appendChild(languageBadge);
+            }
+
             const button = document.createElement('button');
             button.type = 'button';
             button.className = 'code-copy-btn';

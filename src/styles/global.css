@@ -245,6 +245,23 @@ main {
   line-height: 1.5;
 }
 
+.code-lang-badge {
+  position: absolute;
+  top: 0.6rem;
+  left: 0.65rem;
+  border: 1px solid color-mix(in srgb, var(--border) 76%, #b8c4d8);
+  background: color-mix(in srgb, var(--surface) 92%, #f2f6fd);
+  color: var(--muted);
+  border-radius: 999px;
+  padding: 0.15rem 0.52rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
 .code-copy-btn {
   position: absolute;
   top: 0.6rem;
