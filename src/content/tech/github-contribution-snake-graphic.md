@@ -10,7 +10,12 @@ featured: true
 ---
 
 The GitHub "snake" graphic is a simple way to visualize your contribution graph. You can generate it automatically with a GitHub Action and publish it as SVG/GIF.
-![Snake animation from my GitHub contributions](https://raw.githubusercontent.com/naveenkhn/naveenkhn/output/github-contribution-grid-snake.svg)
+<img
+  src="https://raw.githubusercontent.com/naveenkhn/naveenkhn/output/github-contribution-grid-snake.svg"
+  data-theme-light-src="https://raw.githubusercontent.com/naveenkhn/naveenkhn/output/github-contribution-grid-snake.svg"
+  data-theme-dark-src="https://raw.githubusercontent.com/naveenkhn/naveenkhn/output/github-contribution-grid-snake-dark.svg"
+  alt="Snake animation from my GitHub contributions"
+/>
 
 ## What you need
 
