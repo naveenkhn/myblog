@@ -39,7 +39,17 @@ const { title, description = 'Technical writing by Naveen Kumar' } = Astro.props
           <a href="/">Home</a>
           <a href="/posts/">Posts</a>
           <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle theme" aria-pressed="false">
-            Theme
+            <span class="theme-icon theme-icon-sun" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                <circle cx="12" cy="12" r="4"></circle>
+                <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
+              </svg>
+            </span>
+            <span class="theme-icon theme-icon-moon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"></path>
+              </svg>
+            </span>
           </button>
         </nav>
       </div>
@@ -58,18 +68,19 @@ const { title, description = 'Technical writing by Naveen Kumar' } = Astro.props
       (() => {
         const storageKey = 'theme-preference';
         const toggle = document.getElementById('theme-toggle');
+        const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
         if (!(toggle instanceof HTMLButtonElement)) return;
 
         const getResolvedTheme = () => {
           const saved = localStorage.getItem(storageKey);
           if (saved === 'light' || saved === 'dark') return saved;
-          return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+          return mediaQuery.matches ? 'dark' : 'light';
         };
 
         const applyTheme = (theme) => {
           document.documentElement.setAttribute('data-theme', theme);
           toggle.setAttribute('aria-pressed', String(theme === 'dark'));
-          toggle.textContent = theme === 'dark' ? 'Dark' : 'Light';
+          toggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
         };
 
         let currentTheme = getResolvedTheme();
@@ -78,6 +89,13 @@ const { title, description = 'Technical writing by Naveen Kumar' } = Astro.props
         toggle.addEventListener('click', () => {
           currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
           localStorage.setItem(storageKey, currentTheme);
+          applyTheme(currentTheme);
+        });
+
+        mediaQuery.addEventListener('change', (event) => {
+          const saved = localStorage.getItem(storageKey);
+          if (saved === 'light' || saved === 'dark') return;
+          currentTheme = event.matches ? 'dark' : 'light';
           applyTheme(currentTheme);
         });
       })();
