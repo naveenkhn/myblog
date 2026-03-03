@@ -1,11 +1,12 @@
 ---
 title: How to Add a Snake Animation to Your GitHub Contributions
 summary: Learn how to turn your GitHub contributions into a snake animation and automate updates.
-publishDate: 2026-02-25
+publishDate: 2023-09-14
 tags:
   - github
   - automation
   - animation
+  - portfolio
 featured: true
 ---
 

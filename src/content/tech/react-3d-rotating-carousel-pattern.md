@@ -1,12 +1,12 @@
 ---
 title: Reusable 3D Rotating Carousel Pattern in React
 summary: Build a reusable 3D rotating card carousel that can showcase skills, projects, testimonials, products, or any grouped content.
-publishDate: 2026-02-26
+publishDate: 2024-05-22
 tags:
   - react
-  - css
   - animation
-  - ui-patterns
+  - gui-design
+  - carousel
 featured: false
 ---
 
