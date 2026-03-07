@@ -60,9 +60,10 @@ const { title, description = 'Technical writing by Naveen Kumar' } = Astro.props
       </div>
     </main>
     <footer class="site-footer">
-      <div class="wrapper">
-        © {new Date().getFullYear()} Naveen Kumar. Built with Astro. <a href="/rss.xml">RSS</a> · Views:
-        <span id="page-views">...</span>
+      <div class="wrapper footer-meta">
+        <span class="footer-item">© {new Date().getFullYear()} Naveen Kumar. Built with Astro.</span>
+        <span class="footer-item"><a href="/rss.xml">RSS</a></span>
+        <span class="footer-item">Views: <span id="page-views">...</span></span>
       </div>
     </footer>
     <script is:inline>
