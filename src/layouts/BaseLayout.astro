@@ -61,7 +61,8 @@ const { title, description = 'Technical writing by Naveen Kumar' } = Astro.props
     </main>
     <footer class="site-footer">
       <div class="wrapper">
-        © {new Date().getFullYear()} Naveen Kumar. Built with Astro. <a href="/rss.xml">RSS</a>
+        © {new Date().getFullYear()} Naveen Kumar. Built with Astro. <a href="/rss.xml">RSS</a> · Views:
+        <span id="page-views">...</span>
       </div>
     </footer>
     <script is:inline>
@@ -145,9 +146,32 @@ const { title, description = 'Technical writing by Naveen Kumar' } = Astro.props
           });
         };
 
+        const updatePageViews = async () => {
+          const el = document.getElementById('page-views');
+          if (!(el instanceof HTMLElement)) return;
+
+          const site = 'blog';
+          const path = window.location.pathname || '/';
+          const page = path === '/' || path.endsWith('/') ? path : `${path}/`;
+
+          const endpoint = 'https://f9qw6hmni6.execute-api.ap-south-1.amazonaws.com/Prod/visit/';
+          const url = new URL(endpoint);
+          url.search = new URLSearchParams({ site, page }).toString();
+
+          try {
+            const res = await fetch(url.toString(), { cache: 'no-store' });
+            const data = await res.json();
+            const views = data?.views;
+            el.textContent = typeof views === 'number' || typeof views === 'string' ? String(views) : 'N/A';
+          } catch {
+            el.textContent = 'N/A';
+          }
+        };
+
         let currentTheme = getResolvedTheme();
         applyTheme(currentTheme);
         enhanceCodeBlocks();
+        updatePageViews();
 
         toggle.addEventListener('click', () => {
           currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
