@@ -18,7 +18,7 @@ By the end, you’ll understand:
 - The core architecture behind many serverless utilities (HTTP → function → managed storage)
 - How a reusable `(site, page)` page-view counter works end-to-end on AWS
 
-Code repo: https://github.com/naveenkhn/serverless_utils/tree/main/pageview_counter
+Code repo: [serverless_utils/pageview_counter](https://github.com/naveenkhn/serverless_utils/tree/main/pageview_counter)
 
 ## What are serverless functions?
 
@@ -57,7 +57,7 @@ What you’ll end up with:
 - A durable counter stored in DynamoDB
 - A reusable key design so the same backend supports multiple sites and pages
 
-Code repo: https://github.com/naveenkhn/serverless_utils/tree/main/pageview_counter
+Code repo: [serverless_utils/pageview_counter](https://github.com/naveenkhn/serverless_utils/tree/main/pageview_counter)
 
 ## Architecture
 
@@ -217,4 +217,4 @@ Optional controls (pick what fits your needs):
 
 This is one example, but the pattern generalizes nicely: a serverless function + a managed data store can power lots of personal-site utilities without running a traditional backend.
 
-Full code: https://github.com/naveenkhn/serverless_utils/tree/main/pageview_counter
+Full code: [serverless_utils/pageview_counter](https://github.com/naveenkhn/serverless_utils/tree/main/pageview_counter)

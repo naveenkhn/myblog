@@ -51,6 +51,12 @@ a:hover {
   text-decoration-color: var(--accent);
 }
 
+.article,
+.post-card {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
 .wrapper {
   width: min(1100px, 92vw);
   margin: 0 auto;
