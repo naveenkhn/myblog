@@ -9,7 +9,7 @@
   --accent-soft: #f8d7cf;
   --border: #e4d8c5;
   --shadow: 0 10px 30px rgba(32, 33, 35, 0.08);
-  --max: 74ch;
+  --max: 92ch;
 }
 
 :root[data-theme='dark'] {
@@ -207,7 +207,7 @@ main {
 }
 
 .article {
-  max-width: var(--max);
+  max-width: min(var(--max), 100%);
   margin: 0 auto;
   background: var(--surface);
   border: 1px solid var(--border);
