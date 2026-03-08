@@ -23,11 +23,9 @@ You can reuse this carousel for projects, testimonials, product highlights, and 
 Here is a quick demo from my portfolio:
 
 <video controls autoplay muted loop playsinline preload="metadata">
-  <source src="/media/posts/react-3d-carousel-demo.mov" type="video/quicktime" />
-  Your browser does not support this video format.
+  <source src="/media/posts/react-3d-carousel-demo.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
 </video>
-
-If `.mov` does not play in your browser, export the same recording as `.mp4` and update the source path.
 
 ## Why this pattern works
 
