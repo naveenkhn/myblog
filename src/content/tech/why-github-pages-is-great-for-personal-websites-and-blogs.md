@@ -1,0 +1,135 @@
+---
+title: "Why GitHub Pages Is Great for Personal Websites and Blogs"
+summary: "Learn what GitHub Pages is, why developers like it, where it fits well, and how this blog is deployed with it."
+publishDate: 2021-04-11
+tags:
+  - github
+  - github-pages
+  - hosting
+  - static-sites
+featured: false
+---
+
+GitHub Pages is one of the easiest ways to put a personal website or blog online. If your site is static, you can host it directly from a GitHub repository, connect a custom domain, and publish updates through your normal Git workflow.
+
+This blog uses GitHub Pages, so this post is based on a real setup rather than a generic walkthrough.
+
+## 1. Introduction
+
+For personal websites and blogs, the hardest part is often not writing the content. It is choosing a hosting setup that is simple, reliable, and easy to maintain.
+
+GitHub Pages works well because it removes a lot of operational overhead. You keep your code in GitHub, push changes, and publish a static site without managing servers.
+
+## 2. What Is GitHub Pages?
+
+GitHub Pages is a static site hosting service provided by GitHub. It takes files from a repository, optionally runs a build step, and publishes the result as a website.
+
+That makes it a good fit for:
+
+- Personal websites
+- Blogs
+- Project pages
+- Documentation sites
+
+It is not a general-purpose application hosting platform. You do not get a backend runtime, a database, or server-side APIs out of the box.
+
+## 3. Why People Use GitHub Pages
+
+A lot of developers already keep their code and content on GitHub. GitHub Pages fits naturally into that workflow.
+
+Instead of learning a separate hosting platform right away, you can:
+
+- Keep your site in the same repository as your content
+- Use pull requests and commits as your publishing workflow
+- Let GitHub build and deploy the site
+- Attach a custom domain and HTTPS
+
+For someone who wants a simple blog or personal site, that is a strong starting point.
+
+## 4. Common Use Cases
+
+GitHub Pages is especially useful for static content-driven sites.
+
+Common examples include:
+
+- Developer portfolios
+- Technical blogs
+- Open source project landing pages
+- Product documentation
+- Conference or event microsites
+
+The shared pattern is that these sites do not need a traditional backend just to render pages.
+
+## 5. Benefits of GitHub Pages
+
+Here are the biggest reasons people choose it:
+
+- **Free hosting for static sites**: a great fit for personal work, experiments, and blogs
+- **Git-based workflow**: publishing can be as simple as pushing to `main`
+- **Custom domain support**: you can map the site to your own domain instead of only using `github.io`
+- **HTTPS support**: secure delivery without extra setup burden
+- **Simple maintenance**: no server patching, scaling rules, or runtime management
+- **Good developer ergonomics**: version history, rollbacks, branches, and PR reviews all come naturally
+
+For a personal blog, these benefits matter because the hosting setup should stay in the background. It should not become the project.
+
+## 6. Limitations of GitHub Pages
+
+GitHub Pages is useful, but it is not the right answer for everything.
+
+Some important limitations:
+
+- **Static hosting only**: no built-in backend, database, or server-side rendering runtime
+- **Limited for dynamic apps**: if your site needs authenticated APIs, real-time features, or custom server logic, you will need another platform
+- **Build and workflow constraints**: your deployment model lives inside GitHub’s Pages ecosystem and Actions workflow
+- **Less flexible than app-focused hosts**: platforms like Vercel, Netlify, or Cloudflare Pages often provide more advanced developer features for modern web apps
+
+If your site is mostly pages, posts, assets, and client-side JavaScript, GitHub Pages works well. If your site behaves more like an application, you will likely outgrow it.
+
+## 7. Real Examples of Websites Using GitHub Pages
+
+The most relevant example for this article is this blog itself.
+
+This blog is hosted on GitHub Pages with:
+
+- An Astro-based static build
+- A GitHub Actions workflow that builds the site on every push to `main`
+- A custom domain configured through `CNAME`
+
+This repository already includes that setup:
+
+- Workflow: `.github/workflows/deploy.yml`
+- Custom domain file: `CNAME`
+
+GitHub’s own Pages documentation also points to an examples collection for sites built on GitHub Pages. Well-known public examples often referenced there include sites like [government.github.com](https://government.github.com/), [square.github.io](https://square.github.io/), and [yelp.github.io](https://yelp.github.io/).
+
+## 8. When GitHub Pages Is a Good Choice
+
+GitHub Pages is a strong choice when:
+
+- You are building a static blog or personal site
+- You want a low-maintenance hosting setup
+- Your content already lives comfortably in a Git repository
+- You do not need server-side application features
+- You want a fast path from writing to publishing
+
+That is exactly why it works well for this blog.
+
+## 9. When to Choose Something Else
+
+You may want another hosting option when:
+
+- You need server-side rendering
+- You need API routes or backend logic
+- You want built-in previews, edge features, or deeper deployment controls
+- You are building something more like a product than a content site
+
+In those cases, platforms like Vercel, Netlify, or Cloudflare Pages can be a better fit.
+
+## 10. Conclusion
+
+GitHub Pages is great for personal websites and blogs because it is simple, developer-friendly, and reliable for static content.
+
+It does not try to be everything. That is part of its strength.
+
+If your goal is to publish a portfolio, documentation site, or technical blog without taking on unnecessary hosting complexity, GitHub Pages is a very practical choice.
