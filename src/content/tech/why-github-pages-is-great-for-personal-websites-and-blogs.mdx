@@ -10,6 +10,8 @@ tags:
 featured: false
 ---
 
+import Callout from '../../components/Callout.astro';
+
 GitHub Pages is one of the easiest ways to put a personal website or blog online. If your site is static, you can host it directly from a GitHub repository, connect a custom domain, and publish updates through your normal Git workflow.
 
 This blog uses GitHub Pages, so this post is based on a real setup rather than a generic walkthrough.
@@ -81,6 +83,8 @@ Some important limitations:
 
 - **Static hosting only**: no built-in backend, database, or server-side rendering runtime
 - **Limited for dynamic apps**: if your site needs authenticated APIs, real-time features, or custom server logic, you will need another platform
+- **Repository visibility rules matter**: on GitHub Free, GitHub Pages works for public repositories, while private repositories require a paid plan
+- **Visibility changes can affect publishing**: if a repository is changed in a way that makes Pages ineligible, the site can stop publishing until settings are restored
 - **Build and workflow constraints**: your deployment model lives inside GitHub’s Pages ecosystem and Actions workflow
 - **Less flexible than app-focused hosts**: platforms like Vercel, Netlify, or Cloudflare Pages often provide more advanced developer features for modern web apps
 
@@ -100,6 +104,28 @@ This repository already includes that setup:
 
 - Workflow: `.github/workflows/deploy.yml`
 - Custom domain file: `CNAME`
+
+## How this blog is configured on GitHub Pages
+
+This blog uses **GitHub Actions** as the GitHub Pages source instead of relying on a default branch publish flow.
+
+At a high level, the setup looks like this:
+
+1. The Astro site is stored in a GitHub repository.
+2. Every push to `main` triggers `.github/workflows/deploy.yml`.
+3. The workflow installs dependencies, runs `npm run build`, and produces a static `dist/` folder.
+4. GitHub Pages deploys that build artifact as the live site.
+
+For the custom domain setup, the important pieces are:
+
+- `Settings -> Pages` should use **GitHub Actions** as the source
+- the custom domain should be set to `blog.naveenkhn.com`
+- the repository includes a `CNAME` file with that same domain
+- HTTPS can be enabled after the certificate is issued
+
+<Callout type="warning" title="Important">
+  If repository visibility changes and GitHub Pages becomes unpublished, you may need to restore the Pages settings and custom domain configuration before deployments start working again.
+</Callout>
 
 GitHub’s own Pages documentation also points to an examples collection for sites built on GitHub Pages. Well-known public examples often referenced there include sites like [government.github.com](https://government.github.com/), [square.github.io](https://square.github.io/), and [yelp.github.io](https://yelp.github.io/).
 
