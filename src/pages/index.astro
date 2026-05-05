@@ -14,10 +14,23 @@ const otherPosts = posts.filter((post) => post.id !== featuredPost?.id);
 
 <BaseLayout title="Naveen's Technical Blog" description="Engineering notes, systems design ideas, and practical dev workflows.">
   <section class="hero">
-    <h1>Ideas, experiments, and engineering notes.</h1>
-    <p>
-      I share practical software engineering notes, fun experiments, and interesting ideas from what I build and learn.
-    </p>
+    <div class="hero-copy">
+      <h1>Ideas, experiments, and engineering notes.</h1>
+      <p>
+        I share practical software engineering notes, fun experiments, and interesting ideas from what I build and learn.
+      </p>
+    </div>
+    <div class="hero-profile">
+      <img
+        class="hero-avatar"
+        src="https://github.com/naveenkhn.png"
+        alt="Naveen Kumar"
+        width="144"
+        height="144"
+        loading="eager"
+        decoding="async"
+      />
+    </div>
   </section>
 
   {featuredPost && (
